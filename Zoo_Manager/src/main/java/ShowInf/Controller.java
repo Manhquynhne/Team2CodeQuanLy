@@ -2,14 +2,26 @@ package ShowInf;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import Home.AnimalManagementInterface;
+import Icon_timKiem.BaoBaoControll;
+import Icon_timKiem.BaoBaoView;
+import test.Animal;
+
+
 public class Controller implements ActionListener, ListSelectionListener {
 
+    BaoBaoView viewBao;
     HienThiView view;
     Second secondview;
+
+    Second second;
+    AnimalManagementInterface giaoDien;
+
 
     public Controller(HienThiView view) {
         this.view = view;
@@ -22,21 +34,19 @@ public class Controller implements ActionListener, ListSelectionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
-        if (command.equals("HIỂN THỊ THÔNG TIN")) {
-            this.view.hienThiGiaoDien();
-
-        } else if (command.equals("Hiển thị ")) {
-            HienThiView.hienThiButton();
+        if (command.equals("Hiển thị ")) {
+           second.hienThiButton();
         } else if (command.equals("TABLE")) {
-            try {
-                HienThiView.docDuLieuTable();
-
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+            second.docDuLieuTable();
+        } else if (command.equals("SỐ LIỆU SỨC KHỎE")) {
+            this.view.hienThiGiaoDienSLSK();
+            this.view.hienThiSLSK();
+        } else if (command.equals("Home")) {
+            //giaoDien.showHome();
         }
 
     }
+
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
@@ -45,7 +55,7 @@ public class Controller implements ActionListener, ListSelectionListener {
             if (selectedRow == 0) {
                 HienThiView.hienThiChimCanhCut();
             } else if (selectedRow == 1) {
-                // view.inforChimCongLam();
+
             }
         }
     }

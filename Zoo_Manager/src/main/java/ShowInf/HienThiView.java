@@ -26,8 +26,8 @@ import javax.swing.JTextField;
 public class HienThiView extends JFrame {
 
     private JPanel contentPane;
+    private Third third;
     public static HienThiView frame;
-    private JTextField textField;
     private static Second second;
 
     /**
@@ -56,7 +56,7 @@ public class HienThiView extends JFrame {
     public HienThiView() {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 655, 440);
+        setBounds(100, 100, 818, 505);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -65,10 +65,16 @@ public class HienThiView extends JFrame {
 
         JButton buttonHienThi = new JButton("HIỂN THỊ THÔNG TIN");
         ActionListener ac = new Controller(this);
+
         buttonHienThi.addActionListener(ac);
         buttonHienThi.setFont(new Font("Times New Roman", Font.BOLD, 25));
-        buttonHienThi.setBounds(160, 334, 317, 39);
+        buttonHienThi.setBounds(50, 364, 356, 40);
 
+        JButton buttonSucKhoe = new JButton("SỐ LIỆU SỨC KHỎE");
+        buttonSucKhoe.addActionListener(ac);
+        buttonSucKhoe.setFont(new Font("Times New Roman", Font.BOLD, 25));
+        buttonSucKhoe.setBounds(431, 367, 296, 35);
+        getContentPane().add(buttonSucKhoe);
 
         contentPane.add(buttonHienThi);
 
@@ -79,13 +85,22 @@ public class HienThiView extends JFrame {
         second.setLocationRelativeTo(null);
         second.setVisible(true);
     }
+    public void hienThiGiaoDienSLSK() {
+        third = new Third();
+        third.setLocationRelativeTo(null);
+        third.setVisible(true);
+    }
 
-    public static String docDuLieu(String path) {
-        File f = new File(path);
+    public static String docDuLieu(String fileName) {
+
+        String value = new File(fileName).getAbsolutePath();
+        char find = '\\';
+        char rep = '/';
+        String kq = value.replace(find, rep);
+        File f = new File(kq);
         try {
 
             List<String> allText = Files.readAllLines(f.toPath(), StandardCharsets.UTF_8);
-
 
             StringBuilder data = new StringBuilder();
             for (String string : allText) {
@@ -100,10 +115,15 @@ public class HienThiView extends JFrame {
     }
 
     public static void hienThiButton() {
-        String data = docDuLieu("D:\\Nội dung\\Chim công.txt");
-        second.labelHienThiSecond.setText("<html><font face='Times New Roman' size='5'" + data + "</html>");
+        String result = docDuLieu("Chim cánh cụt.txt");
+        second.labelHienThiSecond.setText("<html><font face='Times New Roman' size='5'" + result + "</html>");
 
     }
+    public static String getThongTinCanTim() {
+        String kq = second.textFieldTim.getText();
+        return kq;
+    }
+
     public static void docDuLieuTable() {
         String filePath = "D:\\Nội dung\\Animal.txt";
         DefaultTableModel model_table1 = (DefaultTableModel) second.table.getModel();
@@ -124,12 +144,15 @@ public class HienThiView extends JFrame {
         }
     }
 
-
-    public  static void hienThiChimCanhCut() {	//test trước 1 cái thoiii nha
+    public void hienThiSLSK() {
+        String result = docDuLieu("slskchim.txt");
+        third.labelSLSK.setText("<html><font face='Times New Roman' size='5'" + result + "</html>");
+    }
+    public static void hienThiChimCanhCut() { // test trước 1 cái thoiii nha
         ImageIcon icon = new ImageIcon("C:\\Users\\nguye\\Downloads\\canhCut.jpg");
         // Duyên muốn hiển thị video mà hk đc... lỗi quài lun =((
         String title = "THÔNG TIN CHI TIẾT";
-        String rs = docDuLieu("D:\\Nội dung\\Chim cánh cụt.txt");
+        String rs = docDuLieu("Chim cánh cụt.txt");
         String mess = "<html><font face='Times New Roman' size='4'" + rs + "</html>";
         JOptionPane.showMessageDialog(null, mess, title, JOptionPane.INFORMATION_MESSAGE, icon);
     }

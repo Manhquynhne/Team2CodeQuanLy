@@ -1,0 +1,30 @@
+201.Chim cánh cụt
+Tình trạng sức khẻo: Tốt 
+Ghi chú : Không
+202.Chim chào mào
+Tình trạng sức khoẻ: Tốt
+Ghi chú : Không 
+203.Chim cổ đỏ 
+Tình trạng sức khoẻ: Không tốt
+Ghi chú : Nhiễm trùng cánh phải,cần theo dõi thêm
+204.Chim công 
+Tình trạng sức khoẻ: Tốt 
+Ghi chú : Không
+205.Chim hoát rừng 
+Tình trạng sức khoẻ: Không tốt 
+Ghi chú : Kén ăn,cần theo dõi thêm
+206.Chim hồng hạc
+Tình trạng sức khoẻ: Tốt
+Ghi chú : Không 
+207.Chim hồng hoàn 
+Tình trạng sức khoẻ: Tốt 
+Ghi chú : Không
+208.Chim ruồi ong 
+Tình trạng sức khoẻ: Tốt 
+Ghi chú : Không
+209.Chim sếu đầu đỏ
+Tình trạng sức khoẻ: Không tốt 
+Ghi chú : Bệnh tiêu chảy do E.coli, cần theo dõi thêm 
+210.Chim vẹt Macaw
+Tình trạng sức khoẻ: Tốt 
+Ghi chú : Không
