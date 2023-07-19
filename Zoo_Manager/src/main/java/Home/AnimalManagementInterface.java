@@ -1,5 +1,8 @@
 package Home;
 
+import ShowInf.HienThiView;
+import ShowInf.Second;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -90,7 +93,7 @@ public class AnimalManagementInterface extends JFrame {
         homePanel.add(homeButton);
         
         JLabel lblNewLabel = new JLabel("New label");
-        lblNewLabel.setIcon(new ImageIcon("D:\\9.jpg"));
+        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nguye\\Documents\\Zalo Received Files\\9.jpg"));
         lblNewLabel.setBounds(0, 0, 486, 363);
         homePanel.add(lblNewLabel);
     }
@@ -135,7 +138,7 @@ public class AnimalManagementInterface extends JFrame {
         listPanel.add(homeButton, BorderLayout.SOUTH);
     }
 
-    private void showHome() {
+    public void showHome() {
         setContentPane(homePanel);
         invalidate();
         validate();
@@ -162,10 +165,20 @@ public class AnimalManagementInterface extends JFrame {
     }
 
     private void showList() {
-        setContentPane(listPanel);
-        invalidate();
-        validate();
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    Second frame = new Second();
+                    frame.setLocationRelativeTo(null);
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        });
     }
+
 
     private void updateAnimalList(List<Animal> newList) {
         animalListModel.clear();
