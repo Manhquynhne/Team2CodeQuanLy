@@ -8,14 +8,12 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import Home.AnimalManagementInterface;
-import Icon_timKiem.BaoBaoControll;
-import Icon_timKiem.BaoBaoView;
-import test.Animal;
+
 
 
 public class Controller implements ActionListener, ListSelectionListener {
 
-    BaoBaoView viewBao;
+
     HienThiView view;
     Second secondview;
 
