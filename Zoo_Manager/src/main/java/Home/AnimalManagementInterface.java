@@ -23,6 +23,7 @@ public class AnimalManagementInterface extends JFrame {
     private JList<Animal> animalJList;
     private DefaultListModel<Animal> animalListModel;
     private List<Animal> animalList;
+    private JButton homeButton_1;
 
     public AnimalManagementInterface() {
         // Thiết lập chung của cửa sổ
@@ -56,8 +57,9 @@ public class AnimalManagementInterface extends JFrame {
 
         // Nút "Tìm kiếm"
         searchButton = new JButton("");
+        searchButton.setBackground(new Color(128, 255, 255));
         searchButton.setIcon(new ImageIcon("D:\\5.png"));
-        searchButton.setBounds(318, 252, 168, 111);
+        searchButton.setBounds(356, 252, 130, 111);
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,10 +70,10 @@ public class AnimalManagementInterface extends JFrame {
 
         // Nút "Hiển thị danh sách"
         listButton = new JButton("");
-        listButton.setIcon(new ImageIcon("D:\\6.png"));
+        listButton.setIcon(new ImageIcon("D:\\12.png"));
         listButton.setForeground(new Color(0, 0, 0));
-        listButton.setBackground(new Color(192, 192, 192));
-        listButton.setBounds(0, 252, 154, 111);
+        listButton.setBackground(new Color(128, 255, 255));
+        listButton.setBounds(0, 252, 117, 111);
         listButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,8 +84,9 @@ public class AnimalManagementInterface extends JFrame {
 
         // Nút "Home"
         homeButton = new JButton("");
+        homeButton.setBackground(new Color(128, 255, 255));
         homeButton.setIcon(new ImageIcon("D:\\4.png"));
-        homeButton.setBounds(154, 252, 168, 111);
+        homeButton.setBounds(113, 252, 117, 111);
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,11 +94,18 @@ public class AnimalManagementInterface extends JFrame {
             }
         });
         homePanel.add(homeButton);
+         homeButton_1 = new JButton("");
+         homeButton_1.setIcon(new ImageIcon("D:\\13.jpg"));
+         homeButton_1.setBackground(new Color(128, 255, 255));
+        homeButton_1.setBounds(240, 252, 117, 111);
+        homePanel.add(homeButton_1);
         
         JLabel lblNewLabel = new JLabel("New label");
         lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nguye\\Documents\\Zalo Received Files\\9.jpg"));
         lblNewLabel.setBounds(0, 0, 486, 363);
         homePanel.add(lblNewLabel);
+        
+       
     }
 
     private void createSearchPanel() {
