@@ -7,71 +7,50 @@ package test;
 
 
 public class Animal {
-    private String Name;
-    private String gioi;
-    private String nghanh;
-    private String lop;
-    private String bo;
-    private String ho;
-    private String chi;
-    private String loai;
-    private String chiTiet;
-    private double luongCaloHapThuNgay;
+    private String name;
+    private String regnum;
+    private String clas;
+    private String infraclass;
+    private String branch;
+    private String ordo;
+    private String familia;
+    private String information;
 
-    public Animal(String Name, String gioi, String nghanh, String lop, String bo, String ho, String chi, String loai, String chiTiet, double luongCaloHapThuNgay) {
-        this.Name = Name;
-        this.gioi = gioi;
-        this.nghanh = nghanh;
-        this.lop = lop;
-        this.bo = bo;
-        this.ho = ho;
-        this.chi = chi;
-        this.loai = loai;
-        this.chiTiet = chiTiet;
-        this.luongCaloHapThuNgay = luongCaloHapThuNgay;
+    public Animal(String name, String regnum, String clas, String infraclass, String branch, String ordo, String familia, String information) {
+        this.name = name;
+        this.regnum = regnum;
+        this.clas = clas;
+        this.infraclass = infraclass;
+        this.branch = branch;
+        this.ordo = ordo;
+        this.familia = familia;
+        this.information = information;
     }
 
-    public String getName(){
-        return Name;
+    public String getName() {
+        return name;
     }
-
-    public String getGioi() {
-        return gioi;
+    public String getRegnum() {
+        return regnum;
     }
-
-    public String getNghanh() {
-        return nghanh;
+    public String getClas() {
+        return clas;
     }
-
-    public String getLop() {
-        return lop;
+    public String getInfraclass() {
+        return infraclass;
     }
-
-    public String getBo() {
-        return bo;
+    public String getBranch() {
+        return branch;
     }
-
-    public String getHo() {
-        return ho;
+    public String getOrdo() {
+        return ordo;
     }
-
-    public String getChi() {
-        return chi;
+    public String getFamilia() {
+        return familia;
     }
-
-    public String getLoai() {
-        return loai;
+    public String getInformation() {
+        return information;
     }
-
-    public String getChiTiet() {
-        return chiTiet;
-    }
-
-    public double getLuongCaloHapThuNgay() {
-        return luongCaloHapThuNgay;
-    }
-
-
 
 }
 
