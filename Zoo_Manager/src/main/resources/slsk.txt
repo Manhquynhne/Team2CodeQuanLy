@@ -1,0 +1,63 @@
+
+201.Chim cánh cụt
+Tình trạng sức khẻo: Tốt 
+Ghi chú : Không
+202.Chim chào mào
+Tình trạng sức khoẻ: Tốt
+Ghi chú : Không 
+203.Chim cổ đỏ 
+Tình trạng sức khoẻ: Không tốt
+Ghi chú : Nhiễm trùng cánh phải,cần theo dõi thêm
+Lịch sử tiêm phòng : 
+-15/6/2012 : 1 mg Pipérazine
+-30/3/2012: 1 mg Ampicilin
+-15/2/2012: 1 mg Streptomycine
+204.Chim công 
+Tình trạng sức khoẻ: Tốt 
+Ghi chú : Không
+Lịch sử tiêm phòng : 
+-15/6/2012 : 4 mg Pipérazine
+-30/3/2012: 4 mg Ampicilin
+-15/2/2012: 4 mg Streptomycine
+205.Chim hoét rừng 
+Tình trạng sức khoẻ: Không tốt 
+Ghi chú : Kén ăn,cần theo dõi thêm
+Lịch sử tiêm phòng : 
+-15/6/2012 : 1 mg Pipérazine
+-30/3/2012: 1 mg Ampicilin
+-15/2/2012: 1 mg Streptomycine
+206.Chim hồng hạc
+Tình trạng sức khoẻ: Tốt
+Ghi chú : Không 
+Lịch sử tiêm phòng : 
+-15/6/2012 : 4 mg Pipérazine
+-30/3/2012: 4 mg Ampicilin
+-15/2/2012: 4 mg Streptomycine
+207.Chim hồng hoàn 
+Tình trạng sức khoẻ: Tốt 
+Ghi chú : Không
+Lịch sử tiêm phòng : 
+-15/6/2012 : 2 mg Pipérazine
+-30/3/2012: 2 mg Ampicilin
+-15/2/2012: 2 mg Streptomycine
+208.Chim ruồi ong 
+Tình trạng sức khoẻ: Tốt 
+Ghi chú : Không
+Lịch sử tiêm phòng : 
+-15/6/2012 : 0,5 mg Pipérazine
+-30/3/2012: 0,5 mg Ampicilin
+-15/2/2012: 0,5 mg Streptomycine
+209.Chim sếu đầu đỏ
+Tình trạng sức khoẻ: Không tốt 
+Ghi chú : Bệnh tiêu chảy do E.coli, cần theo dõi thêm
+Lịch sử tiêm phòng : 
+-15/6/2012 : 3 mg Pipérazine
+-30/3/2012: 3 mg Ampicilin
+-15/2/2012: 3 mg Streptomycine 
+210.Chim vẹt Macaw
+Tình trạng sức khoẻ: Tốt 
+Ghi chú : Không
+Lịch sử tiêm phòng : 
+-15/6/2012 : 2 mg Pipérazine
+-30/3/2012: 2 mg Ampicilin
+-15/2/2012: 2 mg Streptomycine

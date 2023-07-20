@@ -1,0 +1,31 @@
+Họ và tên: Nguyễn Thanh Tùng 
+Giới tính: Nam
+Năm sinh: 05/07/1994
+Quê quán: Thái Bình 
+Chức vụ: Nhân viên cho ăn 
+Ngày bắt đầu hợp đồng làm việc: 01/02/2020
+SĐT: 082XXXXXXXX
+
+Họ và tên: Phan Mạnh Quỳnh
+Giới tính: Nam
+Năm sinh: 10/01/1990
+Quê quán: Nghệ An
+Chức vụ: Nhân viên cho ăn 
+Ngày bắt đầu hợp đồng làm việc: 01/01/2020
+SĐT: 091XXXXXXXX
+
+Họ và tên: Trần Khánh Vy 
+Giới tính: Nữ 
+Năm sinh: 21/08/1999
+Quê quán: Nghệ An 
+Chức vụ: Nhân viên bán vé 
+Ngày bắt đầu hợp đồng làm việc: 01/02/2020
+SĐT: 018XXXXXXXX
+
+Họ và tên: Nguyễn Đức Cường  
+Giới tính: Nam
+Năm sinh: 13/05/1989
+Quê quán: Đồng Nai 
+Chức vụ: Nhân viên chăm sóc sức khoẻ 
+Ngày bắt đầu hợp đồng làm việc: 01/04/2020
+SĐT: 082XXXXXXXX

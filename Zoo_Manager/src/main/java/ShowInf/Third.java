@@ -1,16 +1,15 @@
 package ShowInf;
 
-import java.awt.EventQueue;
+import Home.AnimalManagementInterface;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.*;
+
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import java.awt.Font;
 public class Third extends JFrame {
+
+    private JLabel labelBS;
 
     private JPanel contentPane;
     public JLabel labelSLSK;
@@ -50,6 +49,12 @@ public class Third extends JFrame {
 
         labelSLSK = new JLabel("New label");
         labelSLSK.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+
+        labelBS = new JLabel();
+        labelBS.setBounds(570, 27, 539, 540);
+        contentPane.add(labelBS);
+
+        labelBS.setIcon(new ImageIcon("Zoo_Manager/src/main/resources/BS.jpg"));
 
 
         scrollPane.setViewportView(labelSLSK);

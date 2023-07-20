@@ -1,5 +1,7 @@
 package ShowInf;
 
+import Home.AnimalManagementInterface;
+
 import java.awt.*;
 
 import javax.swing.*;
@@ -18,8 +20,6 @@ import java.util.List;
 
 public class Second extends JFrame {
 
-
-	public JTextField textFieldTim;
 	private JPanel contentPane;
 	public static JLabel labelHienThiSecond;
 	private JScrollPane scrollPane;
@@ -55,32 +55,16 @@ public class Second extends JFrame {
 	 */
 	public Second() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1432, 738);
+		setBounds(100, 100, 750, 738);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JButton btnNewButton = new JButton("Hiển thị ");
-		btnNewButton.setBackground(new Color(255, 255, 255));
 		ActionListener ac = new Controller(this);
-		btnNewButton.addActionListener(ac);
-		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		btnNewButton.setBounds(1058, 651, 124, 39);
-		contentPane.add(btnNewButton);
-
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(793, 96, 615, 516);
-		contentPane.add(scrollPane);
-
-		labelHienThiSecond = new JLabel("Thông tin");
-		scrollPane.setViewportView(labelHienThiSecond);
-		labelHienThiSecond.setBackground(new Color(64, 0, 64));
-		labelHienThiSecond.setFont(new Font("Tempus Sans ITC", Font.PLAIN, 18));
-
 		scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(74, 203, 589, 289);
+		scrollPane_1.setBounds(74, 100, 600, 500);
 		contentPane.add(scrollPane_1);
 
 		table = new JTable();
@@ -92,25 +76,13 @@ public class Second extends JFrame {
 
 		scrollPane_1.setViewportView(table);
 
-		buttonTable = new JButton("TABLE");
+		buttonTable = new JButton("HIỂN THỊ DANH SÁCH");
 		buttonTable.addActionListener(ac);
-		buttonTable.setFont(new Font("Times New Roman", Font.PLAIN, 19));
-		buttonTable.setBounds(242, 653, 111, 39);
+		buttonTable.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		buttonTable.setBounds(200, 650, 300, 39);
 		contentPane.add(buttonTable);
 
-		JLabel labelThongBao = new JLabel("*Chọn chim cánh cụt thoiii nha mấy kia ch làm=)) *");
-		labelThongBao.setForeground(new Color(0, 0, 204));
-		labelThongBao.setBackground(new Color(0, 206, 209));
-		labelThongBao.setFont(new Font("Times New Roman", Font.ITALIC, 16));
-		labelThongBao.setBounds(298, 173, 366, 20);
-		contentPane.add(labelThongBao);
 
-		JLabel labelThongBaoThem = new JLabel("*Chỗ này mn có ý tưởng jk hk... tui mún để video vào mà hk đc =((((( *");
-		labelThongBaoThem.setForeground(new Color(0, 0, 204));
-		labelThongBaoThem.setFont(new Font("Times New Roman", Font.ITALIC, 15));
-		labelThongBaoThem.setBounds(956, 57, 455, 20);
-
-		contentPane.add(labelThongBaoThem);
 
 		JButton buttonHome = new JButton("Home");
 		buttonHome.setFont(new Font("Times New Roman", Font.BOLD, 25));
@@ -125,13 +97,14 @@ public class Second extends JFrame {
 		third.setVisible(true);
 	}
 
-	public static String docDuLieu(String fileName) {
+	public static String docDuLieu(String path) {
 
-		String value = new File(fileName).getAbsolutePath();
-		char find = '\\';
-		char rep = '/';
-		String kq = value.replace(find, rep);
-		File f = new File(kq);
+		//TODO: LẤY ĐƯỜNG DẪN TƯƠNG ĐỐI
+//		String value = new File(fileName).getAbsolutePath();
+//		char find = '\\';
+//		char rep = '/';
+//		String kq = value.replace(find, rep);
+		File f = new File(path);
 		try {
 
 			List<String> allText = Files.readAllLines(f.toPath(), StandardCharsets.UTF_8);
@@ -148,18 +121,8 @@ public class Second extends JFrame {
 		return null;
 	}
 
-	public static void hienThiButton() {
-		String result = docDuLieu("Chim cánh cụt.txt");
-		labelHienThiSecond.setText("<html><font face='Times New Roman' size='5'" + result + "</html>");
-
-	}
-//	public static String getThongTinCanTim() {
-//		String kq = second.textFieldTim.getText();
-//		return kq;
-//	}
-
 	public static void docDuLieuTable() {
-		String filePath = "D:\\Nội dung\\Animal.txt";
+		String filePath = "Zoo_Manager/src/main/resources/Animal.txt";
 		DefaultTableModel model_table1 = (DefaultTableModel)  table.getModel();
 
 		while (model_table1.getRowCount() > 0) {
@@ -178,16 +141,69 @@ public class Second extends JFrame {
 		}
 	}
 
-	public void hienThiSLSK() {
-		String result = docDuLieu("slskchim.txt");
-		third.labelSLSK.setText("<html><font face='Times New Roman' size='5'" + result + "</html>");
-	}
-	public static void hienThiChimCanhCut() { // test trước 1 cái thoiii nha
-		ImageIcon icon = new ImageIcon("C:\\Users\\nguye\\Downloads\\canhCut.jpg");
-		// Duyên muốn hiển thị video mà hk đc... lỗi quài lun =((
-		String title = "THÔNG TIN CHI TIẾT";
-		String rs = docDuLieu("Chim cánh cụt.txt");
+	public static void hienThiChimCanhCut() {
+		String title = "THÔNG TIN CHIM CÁNH CỤT";
+		String rs = docDuLieu("Zoo_Manager/src/main/resources/chimcanhcut.txt");
 		String mess = "<html><font face='Times New Roman' size='4'" + rs + "</html>";
-		JOptionPane.showMessageDialog(null, mess, title, JOptionPane.INFORMATION_MESSAGE, icon);
+		AnimalManagementInterface.hienThiVideo("Zoo_Manager/src/main/resources/penguins_720p.mp4",title,mess);
 	}
+	public static void hienThiChimChaoMao() {
+		String title = "THÔNG TIN CHIM CHÀO MÀO";
+		String rs = docDuLieu("Zoo_Manager/src/main/resources/chimchaomao.txt");
+		String mess = "<html><font face='Times New Roman' size='4'" + rs + "</html>";
+		AnimalManagementInterface.hienThiVideo("Zoo_Manager/src/main/resources/chaomao.mp4",title,mess);
+	}
+	public static void hienThiChimCong() {
+		String title = "THÔNG TIN CHIM CÔNG";
+		String rs = docDuLieu("Zoo_Manager/src/main/resources/chimhoetrung.txt");
+		String mess = "<html><font face='Times New Roman' size='4'" + rs + "</html>";
+		AnimalManagementInterface.hienThiVideo("Zoo_Manager/src/main/resources/bird_-_86001 (1080p).mp4",title,mess);
+	}
+	public static void hienThiChimHoetRung() {
+		String title = "THÔNG TIN CHIM HOÉT RỪNG";
+		String rs = docDuLieu("Zoo_Manager/src/main/resources/chimhoetrung.txt");
+		String mess = "<html><font face='Times New Roman' size='4'" + rs + "</html>";
+		AnimalManagementInterface.hienThiVideo("Zoo_Manager/src/main/resources/hoetRung.mp4",title,mess);
+	}
+	public static void hienThiChimHongHac() {
+		String title = "THÔNG TIN CHIM HỒNG HẠC";
+		String rs = docDuLieu("Zoo_Manager/src/main/resources/chimhonghac.txt");
+		String mess = "<html><font face='Times New Roman' size='4'" + rs + "</html>";
+		AnimalManagementInterface.hienThiVideo("Zoo_Manager/src/main/resources/hongHac.mp4",title,mess);
+	}
+	public static void hienThiChimHongHoang() {
+		String title = "THÔNG TIN CHIM HỒNG HOÀNG";
+		String rs = docDuLieu("Zoo_Manager/src/main/resources/chimhonghoan.txt");
+		String mess = "<html><font face='Times New Roman' size='4'" + rs + "</html>";
+		AnimalManagementInterface.hienThiVideo("Zoo_Manager/src/main/resources/hongHoang.mp4",title,mess);
+	}
+	public static void hienThiChimRuoiOng() {
+		String title = "THÔNG TIN CHIM RUỒI ONG";
+		String rs = docDuLieu("Zoo_Manager/src/main/resources/chimruoiong.txt");
+		String mess = "<html><font face='Times New Roman' size='4'" + rs + "</html>";
+		AnimalManagementInterface.hienThiVideo("Zoo_Manager/src/main/resources/ruoiOng.mp4",title,mess);
+	}
+	public static void hienThiChimSeuDauDo() {
+		String title = "THÔNG TIN CHIM SẾU ĐẦU ĐỎ";
+		String rs = docDuLieu("Zoo_Manager/src/main/resources/chimseudaudo.txt");
+		String mess = "<html><font face='Times New Roman' size='4'" + rs + "</html>";
+		AnimalManagementInterface.hienThiVideo("Zoo_Manager/src/main/resources/seuDauDo.mp4",title,mess);
+	}
+	public static void hienThiChimCoDo() {
+		String title = "THÔNG TIN CHIM CỔ ĐỎ";
+		String rs = docDuLieu("Zoo_Manager/src/main/resources/chimcodo.txt");
+		String mess = "<html><font face='Times New Roman' size='4'" + rs + "</html>";
+		AnimalManagementInterface.hienThiVideo("Zoo_Manager/src/main/resources/coDo.mp4",title,mess);
+	}
+	public static void hienThiChimVetMacaw() {
+		String title = "THÔNG TIN CHIM VẸT MACAW";
+		String rs = docDuLieu("Zoo_Manager/src/main/resources/chimvetmacaw.txt");
+		String mess = "<html><font face='Times New Roman' size='4'" + rs + "</html>";
+		AnimalManagementInterface.hienThiVideo("Zoo_Manager/src/main/resources/vetMaCaw.mp4",title,mess);
+	}
+
+
+
+
+
 }

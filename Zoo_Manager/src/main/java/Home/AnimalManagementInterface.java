@@ -1,33 +1,54 @@
 package Home;
 
-import ShowInf.HienThiView;
+
 import test.timKiem;
 import test.Animal;
-import test.read;
+
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.scene.web.WebView;
+import javafx.util.Duration;
+
+
 
 import ShowInf.Second;
+import ShowInf.Third;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AnimalManagementInterface extends JFrame {
+    private static final int WINDOWS_WIDTH = 1208;
+    private static final int WINDOWS_HEIGHT = 720;
+    private static final int PADDING_UNIT = 16;
     private JPanel homePanel, searchPanel, listPanel;
-    private JButton homeButton, searchButton, listButton;
+    private JButton healthButton, searchButton, listButton,  staffButton;
     private JTextField searchField;
     private JList<Animal> animalJList;
     private DefaultListModel<Animal> animalListModel;
     private List<Animal> animalList;
-    private JButton homeButton_1;
+    Second second;
+
 
     public AnimalManagementInterface() {
         // Thiết lập chung của cửa sổ
@@ -62,7 +83,7 @@ public class AnimalManagementInterface extends JFrame {
         // Nút "Tìm kiếm"
         searchButton = new JButton("");
         searchButton.setBackground(new Color(128, 255, 255));
-        searchButton.setIcon(new ImageIcon("D:\\5.png"));
+        searchButton.setIcon(new ImageIcon("Zoo_Manager/src/main/resources/5.jpg"));
         searchButton.setBounds(356, 252, 130, 111);
         searchButton.addActionListener(new ActionListener() {
             @Override
@@ -74,7 +95,7 @@ public class AnimalManagementInterface extends JFrame {
 
         // Nút "Hiển thị danh sách"
         listButton = new JButton("");
-        listButton.setIcon(new ImageIcon("D:\\12.png"));
+        listButton.setIcon(new ImageIcon("Zoo_Manager/src/main/resources/6.jpg"));
         listButton.setForeground(new Color(0, 0, 0));
         listButton.setBackground(new Color(128, 255, 255));
         listButton.setBounds(0, 252, 117, 111);
@@ -86,30 +107,51 @@ public class AnimalManagementInterface extends JFrame {
         });
         homePanel.add(listButton);
 
-        // Nút "Home"
-        homeButton = new JButton("");
-        homeButton.setBackground(new Color(128, 255, 255));
-        homeButton.setIcon(new ImageIcon("D:\\4.png"));
-        homeButton.setBounds(113, 252, 117, 111);
-        homeButton.addActionListener(new ActionListener() {
+        // Nút SLSK
+        healthButton = new JButton("");
+        healthButton.setBackground(new Color(128, 255, 255));
+
+
+        healthButton.setIcon(new ImageIcon("Zoo_Manager/src/main/resources/slsk.jpg"));
+        healthButton.setBounds(113, 252, 117, 111);
+        healthButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                showHome();
+                Third third = new Third();
+                third.setLocationRelativeTo(null);
+                third.setTitle("THÔNG TIN SỐ LIỆU SỨC KHỎE");
+                third.setVisible(true);
+                String result = second.docDuLieu("Zoo_Manager/src/main/resources/slsk.txt");
+                third.labelSLSK.setText("<html><font face='Times New Roman' size='5'" + result + "</html>");
             }
         });
-        homePanel.add(homeButton);
-         homeButton_1 = new JButton("");
-         homeButton_1.setIcon(new ImageIcon("D:\\13.jpg"));
-         homeButton_1.setBackground(new Color(128, 255, 255));
-        homeButton_1.setBounds(240, 252, 117, 111);
-        homePanel.add(homeButton_1);
-        
+        homePanel.add(healthButton);
+
+        //nhân viên
+        staffButton = new JButton("");
+        staffButton.setIcon(new ImageIcon("Zoo_Manager/src/main/resources/13.jpg"));
+        staffButton.setBackground(new Color(128, 255, 255));
+        staffButton.setBounds(240, 252, 117, 111);
+        homePanel.add(staffButton);
+        staffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon icon = new ImageIcon("Zoo_Manager/src/main/resources/nhanVien.jpg");
+                String title = "THÔNG TIN NHÂN VIÊN";
+                String rs = second.docDuLieu("Zoo_Manager/src/main/resources/infonhanvien.text.txt");
+                String mess = "<html><font face='Times New Roman' size='5'" + rs + "</html>";
+                JOptionPane.showMessageDialog(null, mess, title, JOptionPane.INFORMATION_MESSAGE,icon);
+
+            }
+        });
+
+        //hình nền
         JLabel lblNewLabel = new JLabel("New label");
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nguye\\Documents\\Zalo Received Files\\9.jpg"));
+        lblNewLabel.setIcon(new ImageIcon("Zoo_Manager/src/main/resources/9.jpg"));
         lblNewLabel.setBounds(0, 0, 486, 363);
         homePanel.add(lblNewLabel);
-        
-       
+
+
     }
 
     private void createSearchPanel() {
@@ -208,6 +250,117 @@ public class AnimalManagementInterface extends JFrame {
         }
     }
 
+    public static double getColumSize(int count) {
+        return (WINDOWS_WIDTH / 12f) * count;
+    }
+
+    public static void hienThiVideo(String path, String title, String mess) {
+        EventQueue.invokeLater(() -> {
+            // Tạo JFrame
+            JFrame frame = new JFrame("THÔNG TIN CHI TIẾT");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(WINDOWS_WIDTH, WINDOWS_HEIGHT);
+
+            // Tạo một JFXPanel để nhúng Scene JavaFX vào JFrame
+            JFXPanel fxPanelLeft = new JFXPanel();
+            frame.add(fxPanelLeft, BorderLayout.LINE_START);
+
+            // Thêm nội dung bên phải
+            JFXPanel fxPanelRight = new JFXPanel();
+            frame.add(fxPanelRight, BorderLayout.LINE_END);
+
+            // Hiển thị JFrame
+            frame.setVisible(true);
+
+            // Khởi chạy nền JavaFX
+            Platform.runLater(() -> {
+
+                // Tạo một đối tượng Media với đường dẫn tới file video
+
+                Media media = new Media(new File(path).toURI().toString());
+
+                // Tạo một đối tượng MediaPlayer từ Media
+                MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+                // Đặt sự kiện khi video kết thúc
+                mediaPlayer.setOnEndOfMedia(() -> {
+                    mediaPlayer.seek(Duration.ZERO); // Quay lại thời gian ban đầu
+                    mediaPlayer.play(); // Chơi video lại
+                });
+
+                // Tạo một đối tượng MediaView để hiển thị video
+                MediaView mediaView = new MediaView(mediaPlayer);
+                mediaView.setFitWidth(getColumSize(4) - PADDING_UNIT * 2);
+
+                // Tạo một đối tượng StackPane để chứa MediaView
+                VBox root = new VBox();
+                root.setAlignment(Pos.TOP_CENTER); // Đặt căn giữa theo chiều ngang
+                root.setSpacing(10);
+
+                // TODO: Cần chỉnh lại nội dung
+                Text text = new Text(title);
+                try {
+                    text.setFont(javafx.scene.text.Font.font("Times New Roman", FontWeight.SEMI_BOLD, text.getFont().getSize() * 2));
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+
+                // Thêm button
+//                Button buttonClose = new Button("Kết thúc");
+//                BorderPane borderPane = new BorderPane();
+//                borderPane.setBottom(buttonClose);
+//                BorderPane.setAlignment(buttonClose, Pos.BOTTOM_CENTER);
+                //TODO: Thêm action cho nút
+
+                // Thêm các thành phần khác vào view
+                root.getChildren().add(text);
+                root.getChildren().add(mediaView);
+              //  root.getChildren().add(borderPane);
+                VBox.setMargin(text, new Insets(PADDING_UNIT, 0, 0, 0));
+//                VBox.setVgrow(borderPane, javafx.scene.layout.Priority.ALWAYS);
+//                VBox.setMargin(borderPane, new Insets(0, 0, PADDING_UNIT, 0));
+
+                // Tạo một Scene với VBOX làm nội dung
+                Scene scene = new Scene(root, getColumSize(4), WINDOWS_HEIGHT);
+
+                // Đặt Scene vào JFXPanel
+                fxPanelLeft.setScene(scene);
+
+                // Bắt đầu phát video
+                mediaPlayer.play();
+
+                // Show nội dung bài viết
+                WebView contentView = new WebView();
+
+                contentView.getEngine().loadContent(mess);
+
+//                // TODO: Tạo một ScrollPane và đặt WebView làm nội dung
+//                ScrollPane scrollPane = new ScrollPane(); // Không chạy được rồi :|
+//                scrollPane.setContent(contentView);
+
+                StackPane layoutStack = new StackPane();
+//                layoutVbox.setAlignment(Pos.TOP_LEFT); // Đặt căn giữa theo chiều ngang
+                layoutStack.getChildren().add(contentView);
+                Scene sceneRight = new Scene(layoutStack, getColumSize(7), WINDOWS_HEIGHT);
+
+//                 Đặt chiều cao của WebView để lấp đầy chiều cao của không gian hiển thị
+                layoutStack.setMinHeight(scene.getHeight());
+                layoutStack.setMaxHeight(scene.getHeight());
+                contentView.setMaxHeight(scene.getHeight());
+                contentView.setMinHeight(scene.getHeight());
+
+                // Xử lý sự kiện khi kích thước của cửa sổ thay đổi
+                scene.heightProperty().addListener((observable, oldValue, newValue) -> {
+                    layoutStack.setMinHeight(newValue.doubleValue());
+                    layoutStack.setMaxHeight(newValue.doubleValue());
+                    contentView.setMinHeight(newValue.doubleValue());
+                    contentView.setMaxHeight(newValue.doubleValue());
+                });
+
+                fxPanelRight.setScene(sceneRight);
+            });
+        });
+    }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override

@@ -2,7 +2,6 @@ package ShowInf;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -14,9 +13,6 @@ public class Controller implements ActionListener, ListSelectionListener {
 
     HienThiView view;
     Second secondview;
-
-    Second second;
-    AnimalManagementInterface giaoDien;
 
 
     public Controller(HienThiView view) {
@@ -30,15 +26,13 @@ public class Controller implements ActionListener, ListSelectionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
-        if (command.equals("Hiển thị ")) {
-           second.hienThiButton();
-        } else if (command.equals("TABLE")) {
-            second.docDuLieuTable();
-        } else if (command.equals("SỐ LIỆU SỨC KHỎE")) {
-            this.view.hienThiGiaoDienSLSK();
-            this.view.hienThiSLSK();
-        } else if (command.equals("Home")) {
-            //giaoDien.showHome();
+        if (command.equals("HIỂN THỊ DANH SÁCH")) {
+            try {
+                Second.docDuLieuTable();
+
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
         }
 
     }
@@ -49,10 +43,28 @@ public class Controller implements ActionListener, ListSelectionListener {
         if (!e.getValueIsAdjusting()) {
             int selectedRow = secondview.table.getSelectedRow();
             if (selectedRow == 0) {
-                HienThiView.hienThiChimCanhCut();
+                Second.hienThiChimCanhCut();
             } else if (selectedRow == 1) {
-
+                Second.hienThiChimChaoMao();
+            } else if (selectedRow == 2) {
+                Second.hienThiChimCoDo();
+            } else if (selectedRow == 3) {
+                Second.hienThiChimCong();
+            } else if (selectedRow == 4) {
+                Second.hienThiChimHoetRung();
+            } else if (selectedRow == 5) {
+                Second.hienThiChimHongHac();
+            } else if (selectedRow == 6) {
+                Second.hienThiChimHongHoang();
+            } else if (selectedRow == 7) {
+                Second.hienThiChimRuoiOng();
+            } else if (selectedRow == 8) {
+                Second.hienThiChimSeuDauDo();
+            } else if (selectedRow == 9) {
+                Second.hienThiChimVetMacaw();
             }
+
+
         }
     }
 
