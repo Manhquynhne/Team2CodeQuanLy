@@ -16,7 +16,7 @@ public class read {
         List<test.Animal> list = new ArrayList();
 
         try {
-            FileReader fr = new FileReader("D:\\JAVA code\\Team2CodeQuanLy\\Zoo_Manager\\src\\main\\java\\test_timkiem\\canhCut.txt");
+            FileReader fr = new FileReader("D:\\JAVA code\\Team2CodeQuanLy\\Zoo_Manager\\src\\main\\java\\test\\canhCut.txt");
             BufferedReader br = new BufferedReader(fr);
             while(true) {
                 line = br.readLine();
@@ -25,17 +25,15 @@ public class read {
                 }
 
                 String[] a = line.split(";");
-                String ten = a[0];
-                String gioi = a[1];
-                String nghanh = a[2];
-                String lop = a[3];
-                String bo = a[4];
-                String ho = a[5];
-                String chi = a[6];
-                String loai = a[7];
-                String chiTiet = a[8];
-                Double calo = Double.parseDouble(a[9]);
-                list.add(new test.Animal(ten, gioi, nghanh, lop, bo, ho, chi, loai, chiTiet, calo));
+                String name = a[0];
+                String regnum = a[1];
+                String clas = a[2];
+                String infraclass = a[3];
+                String branch = a[4];
+                String ordo = a[5];
+                String familia = a[6];
+                String information = a[7];
+                list.add(new test.Animal(name,regnum,clas,infraclass,branch,ordo,familia,information));
             }
         } catch (Exception var18) {
         }
