@@ -1,19 +1,16 @@
 package test;// TimKiem.java
-import test.Animal;
 import java.util.List;
-import java.util.Objects;
 
 public class timKiem {
 
     // hàm kiểm tra xem chuỗi này có phải là số hay chuỗi số không, hay là chuỗi kí tự sau đó phân ra từng hàm tìm kiếm riêng đối với chuỗi số và chuỗi kí tự.
-    public static void timKiemTheoChuoi(List<Animal> animals, String tenCanTim) {
+    public static List<Animal> timKiemTheoChuoi(List<Animal> animals, String tenCanTim) {
         if (isNumber(tenCanTim)) {
-            timKiemTheoID(animals, tenCanTim);
-            timKiemTheoTuoi(animals, tenCanTim);
             timKiemTheoCalo(animals, tenCanTim);
         } else {
             timKiemTenLoaiChim(animals, tenCanTim);
         }
+        return animals;
     }
 
     //
@@ -29,75 +26,48 @@ public class timKiem {
     public static void timKiemTenLoaiChim(List<Animal> animals, String tenCanTim) {
         boolean timThay = false;
 
-            for (Animal animal : animals) {
-                if (animal.getName().toLowerCase().contains(tenCanTim)) {
-                    xuat(animal);
-                    timThay = true;
-                    continue; // tìm tiếp những con vật khác xem có giống thông tin cần tìm không.
-                } else if (animal.getTenLoai().toLowerCase().contains(tenCanTim)) {
-                    xuat(animal);
-                    timThay = true;
-                    continue;
-                } else if (animal.getNoiLamViec().toLowerCase().contains(tenCanTim)) {
-                    xuat(animal);
-                    timThay = true;
-                    continue;
-                } else if (animal.getXuatXu().toLowerCase().contains(tenCanTim)) {
-                    xuat(animal);
-                    timThay = true;
-                    continue;
-                } else if (animal.getNgayDen().contains(tenCanTim)) {
-                    xuat(animal);
-                    timThay = true;
-                    continue;
-                } else if (animal.getThucAn().toLowerCase().contains(tenCanTim)) {
-                    xuat(animal);
-                    timThay = true;
-                    continue;
-                } else if (animal.getTinhTrangSucKhoe().toLowerCase().contains(tenCanTim)) {
-                    xuat(animal);
-                    timThay = true;
-                    continue;
-                }
-
+        for (Animal animal : animals) {
+            if (animal.getName().toLowerCase().contains(tenCanTim)) {
+                xuat(animal);
+                timThay = true;
+                continue; // tìm tiếp những con vật khác xem có giống thông tin cần tìm không.
+            }  else if (animal.getGioi().toLowerCase().contains(tenCanTim)) {
+                xuat(animal);
+                timThay = true;
+                continue;
+            } else if (animal.getNghanh().toLowerCase().contains(tenCanTim)) {
+                xuat(animal);
+                timThay = true;
+                continue;
+            } else if (animal.getLop().contains(tenCanTim)) {
+                xuat(animal);
+                timThay = true;
+                continue;
+            } else if (animal.getBo().toLowerCase().contains(tenCanTim)) {
+                xuat(animal);
+                timThay = true;
+                continue;
+            } else if (animal.getHo().toLowerCase().contains(tenCanTim)) {
+                xuat(animal);
+                timThay = true;
+                continue;
+            } else if (animal.getChi().toLowerCase().contains(tenCanTim)) {
+                xuat(animal);
+                timThay = true;
+                continue;
+            } else if (animal.getLoai().toLowerCase().contains(tenCanTim)) {
+                xuat(animal);
+                timThay = true;
+                continue;
+            } else if (animal.getChiTiet().toLowerCase().contains(tenCanTim)) {
+                xuat(animal);
+                timThay = true;
+                continue;
             }
+        }
 
         if (!timThay) {
             System.out.println("Không tìm thấy loài chim có tên chứa: " + tenCanTim);
-        }
-    }
-
-    public static void timKiemTheoID(List<Animal> animals, String tenCanTim) {
-        try {
-            int ID = Integer.parseInt(tenCanTim);
-            boolean timThay = false;
-
-            for (Animal animal : animals) {
-                if (animal.getID() == ID) {
-                    xuat(animal);
-                    timThay = true;
-                }
-            }
-
-        } catch (NumberFormatException e) {
-            System.out.println("Đã nhập không phải là ID.");
-        }
-    }
-
-    public static void timKiemTheoTuoi(List<Animal> animals, String tenCanTim) {
-        try {
-            int tuoi = Integer.parseInt(tenCanTim);
-            boolean timThay = false;
-
-            for (Animal animal : animals) {
-                if (animal.getAge() == tuoi) {
-                    xuat(animal);
-                    timThay = true;
-                }
-            }
-
-        } catch (NumberFormatException e) {
-            System.out.println("Đã nhập không phải là tuổi.");
         }
     }
 
@@ -120,15 +90,15 @@ public class timKiem {
 
     public static void xuat(Animal animal) {
         System.out.println("THÔNG TIN LOÀI CHIM CẦN TÌM");
-        System.out.println("ID: " + animal.getID());
         System.out.println("Tên: " + animal.getName());
-        System.out.println("Tuổi: " + animal.getAge());
-        System.out.println("Loài: " + animal.getTenLoai());
-        System.out.println("Xuất xứ: " + animal.getXuatXu());
-        System.out.println("Ngày đến: " + animal.getNgayDen());
-        System.out.println("Tình trạng: " + animal.getTinhTrangSucKhoe());
-        System.out.println("Nơi làm việc: " + animal.getNoiLamViec());
-        System.out.println("Lượng thức ăn tiêu thụ: " + animal.getThucAn());
+        System.out.println("Bộ: " + animal.getGioi());
+        System.out.println("Nghành: " + animal.getNghanh());
+        System.out.println("Lớp: " + animal.getLop());
+        System.out.println("Bộ: " + animal.getBo());
+        System.out.println("Họ: " + animal.getHo());
+        System.out.println("Chi: " + animal.getChi());
+        System.out.println("Loai: " + animal.getLoai());
+        System.out.println(animal.getChiTiet());
         System.out.println("Lượng calo hấp thụ/ngày: " + animal.getLuongCaloHapThuNgay());
         System.out.println("----------------------");
     }

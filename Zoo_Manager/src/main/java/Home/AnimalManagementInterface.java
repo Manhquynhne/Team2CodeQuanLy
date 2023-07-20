@@ -1,6 +1,10 @@
 package Home;
 
 import ShowInf.HienThiView;
+import test.timKiem;
+import test.Animal;
+import test.read;
+
 import ShowInf.Second;
 
 import java.awt.EventQueue;
@@ -153,15 +157,22 @@ public class AnimalManagementInterface extends JFrame {
     private void performSearch() {
         String keyword = searchField.getText();
         // Thực hiện tìm kiếm ở đây...
+        timKiemTheoChuoi(keyword);
         // Ví dụ: Lấy kết quả tìm kiếm và cập nhật danh sách thú
-        List<Animal> searchResult = new ArrayList<>();
-        for (Animal animal : animalList) {
+   //     List<Animal> searchResult = new ArrayList<>();
+        List<Animal> searchResult = timKiem.timKiemTheoChuoi(animalList, keyword);
+
+   /*     for (Animal animal : animalList) {
             if (animal.getName().toLowerCase().contains(keyword.toLowerCase())) {
                 searchResult.add(animal);
             }
-        }
+        }*/
         updateAnimalList(searchResult);
         showList();
+    }
+
+    public void timKiemTheoChuoi(String thongTinCanTim) {
+        timKiem.timKiemTheoChuoi(animalList, thongTinCanTim);
     }
 
     private void showList() {

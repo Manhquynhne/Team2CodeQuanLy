@@ -7,59 +7,71 @@ package test;
 
 
 public class Animal {
-    private int ID;
     private String Name;
-    private int Age;
-    private String tenLoai;
-    private String xuatXu;
-    private String ngayDen;
-    private String tinhTrangSucKhoe;
-    private String noiLamViec;
-    private String thucAn;
+    private String gioi;
+    private String nghanh;
+    private String lop;
+    private String bo;
+    private String ho;
+    private String chi;
+    private String loai;
+    private String chiTiet;
     private double luongCaloHapThuNgay;
 
-    public Animal(int ID, String Name, int Age, String tenLoai, String xuatXu, String ngayDen, String tinhTrangSucKhoe, String noiLamViec, String thucAn, double luongCaloHapThuNgay) {
-        this.ID = ID;
+    public Animal(String Name, String gioi, String nghanh, String lop, String bo, String ho, String chi, String loai, String chiTiet, double luongCaloHapThuNgay) {
         this.Name = Name;
-        this.Age = Age;
-        this.tenLoai = tenLoai;
-        this.xuatXu = xuatXu;
-        this.ngayDen = ngayDen;
-        this.tinhTrangSucKhoe = tinhTrangSucKhoe;
-        this.noiLamViec = noiLamViec;
-        this.thucAn = thucAn;
+        this.gioi = gioi;
+        this.nghanh = nghanh;
+        this.lop = lop;
+        this.bo = bo;
+        this.ho = ho;
+        this.chi = chi;
+        this.loai = loai;
+        this.chiTiet = chiTiet;
         this.luongCaloHapThuNgay = luongCaloHapThuNgay;
     }
 
-    public int getID(){
-        return ID;
-    }
     public String getName(){
         return Name;
     }
-    public int getAge(){
-        return Age;
+
+    public String getGioi() {
+        return gioi;
     }
-    public String getTenLoai(){
-        return tenLoai;
+
+    public String getNghanh() {
+        return nghanh;
     }
-    public String getXuatXu(){
-        return xuatXu;
+
+    public String getLop() {
+        return lop;
     }
-    public String getNgayDen(){
-        return ngayDen;
+
+    public String getBo() {
+        return bo;
     }
-    public String getTinhTrangSucKhoe(){
-        return tinhTrangSucKhoe;
+
+    public String getHo() {
+        return ho;
     }
-    public String getNoiLamViec(){
-        return noiLamViec;
+
+    public String getChi() {
+        return chi;
     }
-    public String getThucAn(){
-        return thucAn;
+
+    public String getLoai() {
+        return loai;
     }
+
+    public String getChiTiet() {
+        return chiTiet;
+    }
+
     public double getLuongCaloHapThuNgay() {
         return luongCaloHapThuNgay;
     }
+
+
+
 }
 
