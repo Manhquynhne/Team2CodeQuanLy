@@ -214,11 +214,11 @@ public class AnimalManagementInterface extends JFrame {
    //     List<Animal> searchResult = new ArrayList<>();
         List<Animal> searchResult = timKiem.timKiemTheoChuoi(animalList, keyword);
 
-   /*     for (Animal animal : animalList) {
+        for (Animal animal : animalList) {
             if (animal.getName().toLowerCase().contains(keyword.toLowerCase())) {
                 searchResult.add(animal);
             }
-        }*/
+        }
         updateAnimalList(searchResult);
         showList();
     }
