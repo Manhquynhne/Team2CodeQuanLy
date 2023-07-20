@@ -24,7 +24,7 @@ public class Main {
         String familia;
         String information;
         try {
-            FileReader fr = new FileReader("C:\\Users\\PC\\Documents\\GitHub\\Team2CodeQuanLy\\Zoo_Manager\\src\\main\\java\\test\\canhCut.txt");
+            FileReader fr = new FileReader("D:\\JAVA code\\Team2CodeQuanLy\\Zoo_Manager\\src\\main\\java\\test\\canhCut.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
             while (true) {

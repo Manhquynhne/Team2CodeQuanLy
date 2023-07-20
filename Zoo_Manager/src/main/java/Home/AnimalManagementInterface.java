@@ -105,6 +105,7 @@ public class AnimalManagementInterface extends JFrame {
                 showList();
             }
         });
+
         homePanel.add(listButton);
 
         // Nút SLSK
@@ -153,6 +154,7 @@ public class AnimalManagementInterface extends JFrame {
 
 
     }
+
 
     private void createSearchPanel() {
         searchPanel = new JPanel(new BorderLayout());
@@ -209,12 +211,11 @@ public class AnimalManagementInterface extends JFrame {
     private void performSearch() {
         String keyword = searchField.getText();
         // Thực hiện tìm kiếm ở đây...
-        timKiemTheoChuoi(keyword);
-        // Ví dụ: Lấy kết quả tìm kiếm và cập nhật danh sách thú
-   //     List<Animal> searchResult = new ArrayList<>();
         List<Animal> searchResult = timKiem.timKiemTheoChuoi(animalList, keyword);
+        // Ví dụ: Lấy kết quả tìm kiếm và cập nhật danh sách thú
+        //     List<Animal> searchResult = new ArrayList<>();
 
-   /*     for (Animal animal : animalList) {
+    /*    for (Animal animal : animalList) {
             if (animal.getName().toLowerCase().contains(keyword.toLowerCase())) {
                 searchResult.add(animal);
             }
@@ -222,6 +223,7 @@ public class AnimalManagementInterface extends JFrame {
         updateAnimalList(searchResult);
         showList();
     }
+
 
     public void timKiemTheoChuoi(String thongTinCanTim) {
         timKiem.timKiemTheoChuoi(animalList, thongTinCanTim);
