@@ -1,5 +1,7 @@
 package test;// TimKiem.java
 import java.util.List;
+import javax.swing.*;
+import java.awt.*;
 
 public class timKiem {
 
@@ -27,11 +29,7 @@ public class timKiem {
                 xuat(animal);
                 timThay = true;
                 continue; // tìm tiếp những con vật khác xem có giống thông tin cần tìm không.
-            }  else if (animal.getName().toLowerCase().contains(tenCanTim)) {
-                xuat(animal);
-                timThay = true;
-                continue;
-            } else if (animal.getRegnum().toLowerCase().contains(tenCanTim)) {
+            }  else if (animal.getRegnum().toLowerCase().contains(tenCanTim)) {
                 xuat(animal);
                 timThay = true;
                 continue;
@@ -68,7 +66,37 @@ public class timKiem {
     }
 
     public static void xuat(Animal animal) {
-        System.out.println("THÔNG TIN LOÀI CHIM CẦN TÌM");
+
+        StringBuilder resultBuilder = new StringBuilder();
+        resultBuilder.append("THÔNG TIN LOÀI CHIM CẦN TÌM")
+                .append("\nTên: ").append(animal.getName())
+                .append("\nBộ: ").append(animal.getRegnum())
+                .append("\nNghành: ").append(animal.getClas())
+                .append("\nLớp: ").append(animal.getInfraclass())
+                .append("\nNhánh: ").append(animal.getBranch())
+                .append("\nHọ: ").append(animal.getOrdo())
+                .append("\nChi: ").append(animal.getFamilia())
+                .append("\n").append(animal.getInformation())
+                .append("\n----------------------\n");
+
+        System.out.println(resultBuilder.toString());
+
+        JFrame frame = new JFrame("Thông tin Loài Chim Tìm Được");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(600, 400);
+
+        JTextArea textArea = new JTextArea();
+        textArea.setEditable(false);
+        textArea.setFont(new Font("Arial", Font.PLAIN, 14));
+        textArea.setText(resultBuilder.toString());
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        frame.add(scrollPane);
+
+        frame.setVisible(true);
+
+
+    /*    System.out.println("THÔNG TIN LOÀI CHIM CẦN TÌM");
         System.out.println("Tên: " + animal.getName());
         System.out.println("Bộ: " + animal.getRegnum());
         System.out.println("Nghành: " + animal.getClas());
@@ -77,6 +105,6 @@ public class timKiem {
         System.out.println("Họ: " + animal.getOrdo());
         System.out.println("Chi: " + animal.getFamilia());
         System.out.println(animal.getInformation());
-        System.out.println("----------------------");
+        System.out.println("----------------------");*/
     }
 }
