@@ -1,6 +1,5 @@
 package ShowInf;
 
-
 import java.awt.EventQueue;
 
 public class Test {

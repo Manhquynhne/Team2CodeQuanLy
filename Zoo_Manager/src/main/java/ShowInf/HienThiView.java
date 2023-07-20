@@ -125,7 +125,7 @@ public class HienThiView extends JFrame {
     }
 
     public static void docDuLieuTable() {
-        String filePath = "D:\\Nội dung\\Animal.txt";
+        String filePath = "D:\\JAVA code\\Team2CodeQuanLy\\Zoo_Manager\\Animal.txt";
         DefaultTableModel model_table1 = (DefaultTableModel) second.table.getModel();
 
         while (model_table1.getRowCount() > 0) {
