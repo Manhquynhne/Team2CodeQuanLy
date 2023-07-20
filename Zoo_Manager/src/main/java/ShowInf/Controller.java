@@ -9,8 +9,6 @@ import javax.swing.event.ListSelectionListener;
 
 import Home.AnimalManagementInterface;
 
-
-
 public class Controller implements ActionListener, ListSelectionListener {
 
 
